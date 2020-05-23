@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_above="@+id/tabs_rg"/>
+
+        <RadioGroup
+            android:id="@+id/tabs_rg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="#dcdcdc"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/work_tab"
+                style="@style/Custom.TabRadioButton"
+                android:checked="true"
+                android:paddingTop="15dp"
+                android:drawableTop="@drawable/tab_work_selector"
+                android:text=" " />
+            <RadioButton
+                android:id="@+id/record_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_plan_selector"
+                android:text="  " />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+
+            <RadioButton
+                android:id="@+id/plan_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_chat_selector"
+                android:text=" " />
+
+            <RadioButton
+                android:id="@+id/mine_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_mine_selector"
+                android:text=" " />
+        </RadioGroup>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_floatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="13dp"
+
+            android:src="@drawable/plus_white"
+            app:backgroundTint="#036da9"
+            app:fabSize="normal" />
+    </RelativeLayout>
+
+</LinearLayout>

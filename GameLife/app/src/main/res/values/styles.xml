@@ -1,0 +1,87 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorToolbar</item>
+    </style>
+    <!--字体颜色大小风格-->
+    <style name="font_white">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="font_black">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_blue">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/blue2</item>
+    </style>
+    <style name="font_small_black">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_small_blue">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/blue2</item>
+    </style>
+    <style name="font_small_gray">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="font_mine_big">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_mine_small">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_mine_small_blue">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/blue2</item>
+    </style>
+
+    <!--线性布局块-->
+    <style name="linea_block">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@drawable/shape_radius_diaglog_top</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <!--线性布局块-->
+    <style name="linea_block2">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:background">@drawable/shape_radius_diaglog_top</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+    <!-- 底部单选-->
+    <style name="Custom" />
+    <style name="Custom.TabRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">1sp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+</resources>

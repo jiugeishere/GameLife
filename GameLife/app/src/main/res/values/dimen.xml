@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="monster_image_height">35dp</dimen>
+    <dimen name="monster_image_width">35dp</dimen>
+    <!--FAB大小设置-->
+    <dimen name="design_fab_size_normal">70dp</dimen>
+    <dimen name="design_fab_size_mini">60dp</dimen>
+</resources>

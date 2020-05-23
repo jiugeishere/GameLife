@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item android:id="@+id/action_chat_friend"
+       android:icon="@drawable/chat_friend"
+       android:title=""
+       android:orderInCategory="0"/>
+<item android:id="@+id/action_chat_message"
+       android:icon="@drawable/chat_youjian"
+       android:title=""
+       android:orderInCategory="1"/>
+<item android:id="@+id/action_chat_history"
+       android:icon="@drawable/chat_history"
+       android:title=""
+       android:orderInCategory="2"/>
+</menu>

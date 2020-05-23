@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alpha0"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="300dp"
+    android:background="@drawable/shape_radius_diaglog_top"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue2"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/font_white"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左右滑动选择头像"/>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RadioGroup
+            android:id="@+id/rg_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/rb_tx1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang1"
+                android:button="@null"
+                android:checked="true"
+                android:text="1"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang2"
+                android:button="@null"
+                android:text="2"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang3"
+                android:button="@null"
+                android:text="3"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang1"
+                android:button="@null"
+                android:text="4"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang2"
+                android:button="@null"
+                android:text="5"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang3"
+                android:button="@null"
+                android:text="6"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang1"
+                android:button="@null"
+                android:text="7"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang2"
+                android:button="@null"
+                android:text="8"
+                android:textColor="@color/alpha0" />
+
+            <RadioButton
+                android:id="@+id/rb_tx9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/touxiang3"
+                android:button="@null"
+                android:text="9"
+                android:textColor="@color/alpha0" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/blue2"
+        android:orientation="horizontal">
+    </RelativeLayout>
+</LinearLayout>
+</LinearLayout>

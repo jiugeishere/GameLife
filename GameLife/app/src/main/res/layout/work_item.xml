@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/alpha0"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/shape_radius_diaglog_top"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/monster_img"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/monster_renzheng"
+                    android:contentDescription="@string/monster_name" />
+                <TextView
+                    android:id="@+id/text_monster_name"
+                    style="@style/font_small_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="怪物名"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="220dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/work_text"
+                    style="@style/font_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:maxLength="8"
+                    android:text="@string/work_name" />
+
+                <TextView
+                    android:id="@+id/monster_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/work_text"
+                    android:text="@string/exp_vlaue"
+                    style="@style/font_small_gray"/>
+
+
+                <TextView
+                    android:id="@+id/plan_content"
+                    style="@style/font_small_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/work_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="9dp"
+                    android:text="时间:200分钟    金币:150    增加属性:体" />
+            </RelativeLayout>
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:layout_gravity="center_horizontal"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/start_button"
+                    style="@style/font_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="15dp"
+                    android:background="@color/alpha0"
+                    android:text="开始" />
+
+                <TextView
+                    android:id="@+id/plan_way"
+                    style="@style/font_small_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:text="倒计时" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

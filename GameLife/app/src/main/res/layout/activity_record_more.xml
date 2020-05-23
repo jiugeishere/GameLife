@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RecordMoreActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorToolbar"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/recordmore_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/back_white" />
+            <TextView
+                android:layout_marginStart="10dp"
+                android:id="@+id/recordmore_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="人生进展"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/recordmore_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="副标题"
+                android:textColor="@color/ghostwhite"
+                android:textSize="10dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+    <ScrollView
+        android:id="@+id/record_morescroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/nowhite"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                style="@style/linea_block2"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:text="近一周任务统计"
+                    style="@style/font_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/record_barchart"
+                    android:layout_width="350dp"
+                    android:layout_height="215dp"
+                    android:layout_gravity="center">
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                style="@style/linea_block2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="各时段经验分布"
+                    android:layout_marginTop="10dp"
+                    style="@style/font_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/record_linechart"
+                    android:layout_gravity="center"
+                    android:layout_width="350dp"
+                    android:layout_height="215dp">
+
+                </com.github.mikephil.charting.charts.LineChart>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/linea_block2"
+                android:orientation="vertical">
+                <TextView
+                    android:text="极限占比统计"
+                    android:layout_marginTop="10dp"
+                    style="@style/font_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/record_piechart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
