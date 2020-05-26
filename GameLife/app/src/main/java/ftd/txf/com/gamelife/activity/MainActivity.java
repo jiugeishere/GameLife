@@ -355,8 +355,10 @@ public class MainActivity extends FragmentActivity implements WorkContract.View 
                 if (workname_test.isEmpty()||workname_test.length()==0){
                     Toast.makeText(MainActivity.this,"请输入任务内容",Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else {
+                }else if (work.getWork_ways().equals("倒计时")&&work.getPlan_time()==0){
+                    Toast.makeText(MainActivity.this,"倒计时任务时间不可为零",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
                     saveWork(work);
                 }
                 refresh_fragment();

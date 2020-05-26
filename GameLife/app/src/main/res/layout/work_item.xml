@@ -54,7 +54,16 @@
                     android:layout_marginTop="20dp"
                     android:maxLength="8"
                     android:text="@string/work_name" />
-
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/work_tiaozhang"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/puch"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="15dp"
+                    />
                 <TextView
                     android:id="@+id/monster_exp"
                     android:layout_width="wrap_content"

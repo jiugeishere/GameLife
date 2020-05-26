@@ -35,8 +35,6 @@ public class DBUtils {
     }
     /**
      * 修改一条Person数据
-     * @param person
-     * @return
      */
     public boolean updatePerson(Person person){
         boolean flag = false;
@@ -50,8 +48,6 @@ public class DBUtils {
     }
     /**
      * 根据主键id查询Person
-     * @param key
-     * @return
      */
     public Person queryPersonById(long key){
         return mManager.getDaoSession().load(Person.class, key);

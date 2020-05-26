@@ -25,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import ftd.txf.com.gamelife.R;
 import ftd.txf.com.gamelife.activity.ChooseIMGActivity;
+import ftd.txf.com.gamelife.activity.SettingActivity;
 import ftd.txf.com.gamelife.base.BaseFragment;
 import ftd.txf.com.gamelife.entity.Person;
 import ftd.txf.com.gamelife.entity.PersonValue;
@@ -80,6 +81,8 @@ public class MineFragment extends BaseFragment implements RecordContract.View{
     GifImageView CongWu;
     @BindView(R.id.mine_replaceimg)
     TextView MineRecplce;
+    @BindView(R.id.mine_shezhi)
+    ImageView Setting;
     //presenter类
     private RecordContract.Presenter presenter;
     private Record mrecord;
@@ -173,6 +176,13 @@ public class MineFragment extends BaseFragment implements RecordContract.View{
                 startActivity(intent);
             }
         });
+        Setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initRadarData(){
@@ -184,8 +194,6 @@ public class MineFragment extends BaseFragment implements RecordContract.View{
         list.add(new RadarEntry((float) mpersonValue.getShuxing_de()));             //德
         RadarDataSet set = new RadarDataSet(list, "属性比例图");
 
-        //禁用标签
-        //set.setDrawValues(false);
         //设置填充颜色
         set.setFillColor(Color.parseColor("#036da9"));
         //设置填充透明度

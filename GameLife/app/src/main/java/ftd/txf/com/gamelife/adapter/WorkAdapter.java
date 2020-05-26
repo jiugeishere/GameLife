@@ -1,6 +1,7 @@
 package ftd.txf.com.gamelife.adapter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ import ftd.txf.com.gamelife.utils.WorkDBUtils;
 
 public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
     private List<Work> workList;
+    private boolean Tiaozhang;
     private WorkDBUtils mwordDBUtils;
 
     static class ViewHolder  extends RecyclerView.ViewHolder{
@@ -38,6 +40,7 @@ public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
         private TextView monstername;
         private TextView planWay;
         private Button startbutton;
+        private ImageView tiaozhangimg;
         public ViewHolder(View view){
             super(view);
             workView = view;
@@ -46,12 +49,14 @@ public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
             workName = (TextView) view.findViewById(R.id.work_text);              //计划名
             monsterExp=(TextView)view.findViewById(R.id.monster_exp);             //经验
             planContent=(TextView)view.findViewById(R.id.plan_content);           //内容
+            tiaozhangimg=(ImageView)view.findViewById(R.id.work_tiaozhang);      //挑战图片
             planWay=(TextView)view.findViewById(R.id.plan_way);
             startbutton=(Button)view.findViewById(R.id.start_button);
         }
     }
-    public WorkAdapter(List<Work> list){
+    public WorkAdapter(List<Work> list,boolean tiaozhang){
         workList = list;
+        Tiaozhang=tiaozhang;
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -108,6 +113,9 @@ public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
         Work work = workList.get(position);
         if (work.getWork_ways().equals("不计时")){
             holder.startbutton.setText("打卡");
+        }
+        if (Tiaozhang){
+            holder.tiaozhangimg.setVisibility(View.VISIBLE);
         }
         holder.monsterImage.setImageResource(work.getMonster_img());
         holder.workName.setText(work.getWork_name());                                          //为文本视图设置文本内容

@@ -35,10 +35,14 @@ import ftd.txf.com.gamelife.entity.TimeGet;
 import ftd.txf.com.gamelife.limitutils.MobileInfoUtils;
 import ftd.txf.com.gamelife.services.RemindActionService;
 
-public class WorkMoreActivity extends BaseActivity {
+public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.workmore_choosenaozhong)
     Switch ChooseNaozhong;
+    @BindView(R.id.workmore_Tiaozhang)
+    Switch Tiaozhang;
+    @BindView(R.id.workmore_showxitong)
+    Switch Showxitong;
     @BindView(R.id.workmore_choosetime)
     LinearLayout ChooseTime;
     @BindView(R.id.workmore_choosecontent)
@@ -67,11 +71,13 @@ public class WorkMoreActivity extends BaseActivity {
     ImageView MusicShow2;
     @BindView(R.id.workmore_musicshow3)
     ImageView MusicShow3;
-
+    @BindView(R.id.workmore_back)
+    ImageView Back;
     //内容和时间
     private String content="";
     private int hour=0;
     private int minte=0;
+    private boolean naocheck;
     //音乐选择
     private  Animation rotateAnimation;
     private int showmusic=1;
@@ -89,13 +95,18 @@ public class WorkMoreActivity extends BaseActivity {
         setShow(false,true);
     }
 
+    /**
+     * 初始化变量设置
+     */
     @Override
     public void initView() {
-        ButterKnife.bind(WorkMoreActivity.this);
+        ButterKnife.bind(SettingActivity.this);
         sharedPreferences=getSharedPreferences("setting",MODE_PRIVATE);
-        int c=sharedPreferences.getInt("naocheck",0);
+        naocheck=sharedPreferences.getBoolean("naocheck",false);
         hour=sharedPreferences.getInt("naohour",14);
         minte=sharedPreferences.getInt("naominute",0);
+        boolean showxitong=sharedPreferences.getBoolean("showxitong",false);
+        boolean tiaozhang=sharedPreferences.getBoolean("tiaozhang",false);
         content=sharedPreferences.getString("naocontent","请务必提醒我");
         if (minte<10){
             Timetext.setText(String.valueOf(hour+":0"+minte));
@@ -103,13 +114,49 @@ public class WorkMoreActivity extends BaseActivity {
             Timetext.setText(String.valueOf(hour+":"+minte));
         }
         Contenttext.setText(content);
-        if (c==1){
-            ChooseNaozhong.setChecked(true);
-        }
+        ChooseNaozhong.setChecked(naocheck);
+        Showxitong.setChecked(showxitong);
+        Tiaozhang.setChecked(tiaozhang);
         editor=sharedPreferences.edit();
+        editor.apply();
         naozhong();
+        moshi();
     }
-
+    //挑战和隐藏模式设置
+    private void moshi(){
+        Tiaozhang.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                editor.putBoolean("tiaozhang",isChecked);
+                editor.commit();
+            }
+        });
+        Showxitong.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                editor.putBoolean("showxitong",isChecked);
+                editor.commit();
+            }
+        });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,MainActivity.class);
+                intent.putExtra("Fragment",4);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+    //返回键监听
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();//注释掉这行,back键不退出activity
+        Intent intent=new Intent(SettingActivity.this,MainActivity.class);
+        intent.putExtra("Fragment",4);
+        startActivity(intent);
+        finish();
+    }
     @Override
     public void initData() {
         setMusic();
@@ -215,7 +262,7 @@ public class WorkMoreActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 MobileInfoUtils mobileInfoUtils=new MobileInfoUtils();
-                mobileInfoUtils.jumpStartInterface(WorkMoreActivity.this);
+                mobileInfoUtils.jumpStartInterface(SettingActivity.this);
             }
         });
     }
@@ -227,12 +274,12 @@ public class WorkMoreActivity extends BaseActivity {
         TimeGet timeGet=new TimeGet();
         int time=timeGet.TimetoNextDay(hour,minte);
         long start = System.currentTimeMillis()+time*1000;
-        Intent intent = new Intent(WorkMoreActivity.this, RemindActionService.class);
+        Intent intent = new Intent(SettingActivity.this, RemindActionService.class);
         intent.putExtra("channel", R.layout.activity_work_more);
         intent.putExtra("title", "游戏人生");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getService(WorkMoreActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager am= (AlarmManager) WorkMoreActivity.this.getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(SettingActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager am= (AlarmManager) SettingActivity.this.getSystemService(Context.ALARM_SERVICE);
         if (f){
             if (!isIgnoringBatteryOptimizations()){
                 requestIgnoreBatteryOptimizations();
@@ -241,9 +288,17 @@ public class WorkMoreActivity extends BaseActivity {
         }else {
             am.cancel(pendingIntent);
         }
+        naoCommit();
+    }
+
+    /**
+     * 同步存储闹钟信息
+     */
+    private void naoCommit(){
         editor.putInt("naohour",hour);
         editor.putInt("naominute",minte);
         editor.putString("naocontent",content);
+        editor.putBoolean("naocheck",naocheck);
         editor.commit();
     }
     private void naozhong(){
@@ -258,20 +313,20 @@ public class WorkMoreActivity extends BaseActivity {
                     ChooseContent.setVisibility(View.VISIBLE);
                     ChooseTime.setVisibility(View.VISIBLE);
                     sendmessage(true);
-                    editor.putInt("naocheck",1);
                 }else {
                     ChooseContent.setVisibility(View.GONE);
                     ChooseTime.setVisibility(View.GONE);
                     sendmessage(false);
-                    editor.putInt("naocheck",0);
                 }
+                naocheck=isChecked;
+                naoCommit();
             }
         });
         ChooseTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final TimeGet timeGet=new TimeGet();
-                TimePickerDialog timePickerDialog = new TimePickerDialog(WorkMoreActivity.this,
+                TimePickerDialog timePickerDialog = new TimePickerDialog(SettingActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -302,9 +357,9 @@ public class WorkMoreActivity extends BaseActivity {
     public void alert_edit(){
         /*@setView 装入一个EditView
          */
-        final EditText editText = new EditText(WorkMoreActivity.this);
+        final EditText editText = new EditText(SettingActivity.this);
         final AlertDialog.Builder inputDialog =
-                new AlertDialog.Builder(WorkMoreActivity.this);
+                new AlertDialog.Builder(SettingActivity.this);
         inputDialog.setCancelable(false);
         inputDialog.setTitle("输入提醒内容").setView(editText);
         inputDialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -319,13 +374,12 @@ public class WorkMoreActivity extends BaseActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         content=editText.getText().toString();
                         Contenttext.setText(content);
-                        Toast.makeText(WorkMoreActivity.this,
+                        Toast.makeText(SettingActivity.this,
                                 editText.getText().toString(),
                                 Toast.LENGTH_SHORT).show();
                     }
                 }).show();
     }
-
 
     /**
      * 获取自启动权限

@@ -25,7 +25,7 @@
         </activity>
         <activity android:name=".activity.RecordMoreActivity" />
         <activity android:name=".activity.ChooseIMGActivity" />
-        <activity android:name=".activity.WorkMoreActivity"></activity>
+        <activity android:name=".activity.SettingActivity"></activity>
 
         <service
             android:name=".services.RemindActionService"

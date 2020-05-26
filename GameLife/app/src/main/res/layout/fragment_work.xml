@@ -1,163 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/nowhite"
-    android:orientation="vertical">
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded,HardcodedText,RtlSymmetry,SmallSp">
 
-    <android.support.v7.widget.Toolbar
+
+    <RelativeLayout
+        android:id="@+id/rl_tool"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorToolbar"
-        android:clipToPadding="true"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize">
+        android:layout_height="52dp"
+        android:background="@color/blue2">
+
+        <TextView
+            android:id="@+id/tv_month_day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_toRightOf="@+id/tv_month_day"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="12dp"
+            tools:ignore="RelativeOverlap">
 
             <TextView
-                android:id="@+id/work_month_text"
+                android:id="@+id/tv_year"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="正标题"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/work_year_text"
+                android:id="@+id/tv_lunar"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_current"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/bg_ripple">
+
+            <ImageView
+                android:id="@+id/ib_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_calendar"
+                android:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_current_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="2dp"
-                android:layout_marginLeft="10dp"
-                android:text="2020"
-                style="@style/font_white" />
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                android:text="13"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </FrameLayout>
+    </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/work_setting_more"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="15dp"
-                    android:src="@drawable/caidan" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-
-            <com.haibin.calendarview.CalendarLayout
-                android:id="@+id/work_calendar_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:orientation="vertical"
-                app:calendar_show_mode="only_week_view"
-                app:default_status="expand">
-
-                <com.haibin.calendarview.CalendarView
-                    android:id="@+id/calendarView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    app:calendar_height="52dp"
-                    app:current_month_lunar_text_color="#CFCFCF"
-                    app:current_month_text_color="#333333"
-                    app:day_text_size="14sp"
-                    app:other_month_lunar_text_color="#e1e1e1"
-                    app:other_month_text_color="#e1e1e1"
-                    app:scheme_text_color="#333"
-                    app:select_mode="single_mode"
-                    app:selected_lunar_text_color="#CFCFCF"
-                    app:selected_text_color="#FFFFFF"
-                    app:selected_theme_color="@color/blue2"
-                    app:week_background="#fff"
-                    app:week_text_color="#111111"
-                    />
-            </com.haibin.calendarview.CalendarLayout>
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="none">
-    <LinearLayout
+    <com.haibin.calendarview.CalendarLayout
+        android:id="@+id/calendarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
+        app:calendar_content_view_id="@+id/work_nestscroll">
 
-        <LinearLayout
-            style="@style/linea_block"
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            app:current_month_lunar_text_color="#CFCFCF"
+            app:current_month_text_color="#333333"
+            app:day_text_size="14sp"
+            app:max_year="2022"
+            app:min_year="2004"
+            app:calendar_height="52dp"
+            app:month_view="ftd.txf.com.gamelife.progress.ProgressMonthView"
+            app:month_view_show_mode="mode_fix"
+            app:other_month_lunar_text_color="#e1e1e1"
+            app:other_month_text_color="#e1e1e1"
+            app:scheme_text="假"
+            app:scheme_text_color="#333"
+            app:scheme_theme_color="#128c4b"
+            app:selected_lunar_text_color="#CFCFCF"
+            app:selected_text_color="#FFFFFF"
+            app:selected_theme_color="#FFf54a00"
+            app:week_background="#fff"
+            app:week_text_color="#111111"
+            app:week_view="ftd.txf.com.gamelife.progress.ProgressWeekView"
+            app:year_view_day_text_color="#333333"
+            app:year_view_day_text_size="9sp"
+            app:year_view_month_text_color="#ff0000"
+            app:year_view_month_text_size="20sp"
+            app:year_view_scheme_color="#f17706" />
 
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/work_nestscroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    style="@style/font_black"
+                <LinearLayout
+                    android:id="@+id/xitong_layout"
+                    style="@style/linea_block"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="系统任务" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/font_small_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="4dp"
-                    android:text="任务完成度" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/work_workdone_text"
-                    style="@style/font_small_gray"
+                        <TextView
+                            style="@style/font_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="系统任务" />
+
+                        <TextView
+                            style="@style/font_small_gray"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="4dp"
+                            android:text="任务完成度" />
+
+                        <TextView
+                            android:id="@+id/work_workdone_text"
+                            style="@style/font_small_gray"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginTop="4dp"
+                            android:text="0/3" />
+                    </LinearLayout>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/xitong_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="4dp"
-                    android:text="0/3" />
+                    style="@style/linea_block"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/font_black"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="自我安排" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/work_list"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp"/>
+                </LinearLayout>
             </LinearLayout>
 
+        </android.support.v4.widget.NestedScrollView>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/xitong_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            style="@style/linea_block"
-            android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/font_black"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="自我安排" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/work_list"
-                android:nestedScrollingEnabled="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
-
+    </com.haibin.calendarview.CalendarLayout>
 
 
 </LinearLayout>
