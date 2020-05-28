@@ -13,19 +13,37 @@
             style = 0/1          进度的风格，实心或者空心
          -->
     <declare-styleable name="RoundProgressBar">
-        <attr name="max" format="integer"></attr>
-        <attr name="startAngle" format="integer"></attr>
+        <attr name="max" format="integer"/>
+        <attr name="startAngle" format="integer"/>
         <attr name="roundColor" format="color"/>
         <attr name="roundProgressColor" format="color"/>
-        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="roundWidth" format="dimension"/>
         <attr name="backColor" format="color" />
         <attr name="textColor" format="color" />
         <attr name="textSize" format="dimension" />
-        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="textIsDisplayable" format="boolean"/>
         <attr name="style">
-            <enum name="STROKE" value="0"></enum>
-            <enum name="FILL" value="1"></enum>
+            <enum name="STROKE" value="0"/>
+            <enum name="FILL" value="1"/>
         </attr>
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="IdentityImageView">
+        <attr name="iciv_bigimage" format="reference"/><!--大图片-->
+        <attr name="iciv_smallimage" format="reference"/><!--小图片-->
+        <attr name="iciv_angle" format="float"/><!--标识角度-->
+        <attr name="iciv_radiusscale" format="float"/><!--大小图片比例-->
+        <attr name="iciv_isprogress" format="boolean"/><!--是否有进度条-->
+        <attr name="iciv_progress_color" format="color|reference"/><!--进度条颜色-->
+        <attr name="iciv_border_color" format="color|reference"/><!--边框颜色-->
+        <attr name="iciv_border_width" format="integer"/><!--边框宽度-->
+        <attr name="iciv_hint_smallimageview" format="boolean"/><!--是否隐藏小图片-->
     </declare-styleable>
 
 </resources>

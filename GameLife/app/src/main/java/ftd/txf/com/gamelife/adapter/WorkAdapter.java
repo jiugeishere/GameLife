@@ -17,6 +17,7 @@ import java.util.List;
 
 import ftd.txf.com.gamelife.R;
 import ftd.txf.com.gamelife.activity.GetDoneActivity;
+import ftd.txf.com.gamelife.activity.TiaozhangActivity;
 import ftd.txf.com.gamelife.entity.Person;
 import ftd.txf.com.gamelife.entity.Record;
 import ftd.txf.com.gamelife.entity.RecordOne;
@@ -95,8 +96,10 @@ public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
                     intent.putExtra("XT_postion",position);
                     if (work.getWork_ways().equals("不计时")){
                         intent.setClass(holder.workView.getContext(),GetDoneActivity.class);
+                    }else if (work.getWork_ways().equals("倒计时")&&Tiaozhang){
+                        intent.setClass(holder.workView.getContext(), TiaozhangActivity.class);
                     }else {
-                        intent.setClass(holder.workView.getContext(),TimerActivity.class);
+                        intent.setClass(holder.workView.getContext(), TimerActivity.class);
                     }
                     holder.workView.getContext().startActivity(intent);
                 }else {
@@ -114,7 +117,7 @@ public class WorkAdapter extends RecyclerView.Adapter <WorkAdapter.ViewHolder>{
         if (work.getWork_ways().equals("不计时")){
             holder.startbutton.setText("打卡");
         }
-        if (Tiaozhang){
+        if (Tiaozhang&&work.getWork_ways().equals("倒计时")){
             holder.tiaozhangimg.setVisibility(View.VISIBLE);
         }
         holder.monsterImage.setImageResource(work.getMonster_img());

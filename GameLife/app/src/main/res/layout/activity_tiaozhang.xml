@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beijing1">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/tz_timer"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tz_workname"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:text="任务名"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/tz_time"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="准备就绪"
+            android:textSize="50dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H           M           S"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <ftd.txf.com.gamelife.utils.IdentityImageView
+        android:id="@+id/tz_timer"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        />
+
+    <ImageButton
+        android:id="@+id/tz_back"
+        android:layout_centerHorizontal="true"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/backbig"/>
+    <ImageButton
+        android:id="@+id/tz_start"
+        android:layout_centerHorizontal="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/start_64"/>
+</RelativeLayout>

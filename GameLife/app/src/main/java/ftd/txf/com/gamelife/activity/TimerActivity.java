@@ -72,9 +72,9 @@ public class TimerActivity extends BaseActivity implements RecordContract.View {
 
     private WorkDBUtils mworkDBUtils;
     private Work work;
-
     private Handler zxhandler;
     private int zxTimer=0;
+
     @Override
     public int intiLayout() {
 //设置子类的布局
@@ -159,6 +159,7 @@ public class TimerActivity extends BaseActivity implements RecordContract.View {
     public void DealData(){
         presenter.setContext();
     }
+
     //控件监听
     private void TimerClick(){
         //闹钟的监控事件
@@ -228,7 +229,6 @@ public class TimerActivity extends BaseActivity implements RecordContract.View {
                 }
                 break;
         }
-        //初始化数据
     }
 
     /**
@@ -461,7 +461,6 @@ public class TimerActivity extends BaseActivity implements RecordContract.View {
                 toast("任务完成");
                 //计时器停止
                 gifdrawable.stop();
-                Timer_time.setText("已结束");
                 GoMain();
             }
         });

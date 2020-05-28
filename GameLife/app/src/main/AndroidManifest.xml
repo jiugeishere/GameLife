@@ -12,6 +12,7 @@
         android:roundIcon="@drawable/gamelife_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.TiaozhangActivity"></activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.TimerActivity" />
         <activity android:name=".activity.PersonCreateActivity" />
@@ -25,13 +26,13 @@
         </activity>
         <activity android:name=".activity.RecordMoreActivity" />
         <activity android:name=".activity.ChooseIMGActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
 
         <service
             android:name=".services.RemindActionService"
             android:enabled="true"
             android:exported="true"
-            android:process="system"></service>
+            android:process="system" />
     </application>
 
 </manifest>
