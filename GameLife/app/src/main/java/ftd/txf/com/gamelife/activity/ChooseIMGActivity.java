@@ -172,6 +172,7 @@ public class ChooseIMGActivity extends BaseActivity implements RecordContract.Vi
                 saveImg();
                 presenter.savaPerson(yperson);
                 toast("设定成功");
+                GoMain();
             }
         });
     }

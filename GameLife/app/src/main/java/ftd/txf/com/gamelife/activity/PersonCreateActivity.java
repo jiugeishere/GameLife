@@ -41,8 +41,6 @@ public class PersonCreateActivity extends BaseActivity implements View.OnClickLi
     EditText person_name;
     @BindView(R.id.personcreate_geyan)
     EditText person_Geyan;
-    @BindView(R.id.personcreate_back)
-    ImageView person_back;
     @BindView(R.id.personcreate_seximg)
     ImageView person_sex;
     @BindView(R.id.personcreate_touxiang)
@@ -59,8 +57,6 @@ public class PersonCreateActivity extends BaseActivity implements View.OnClickLi
     ImageButton select_5;
     @BindView(R.id.personcreate_6)
     ImageButton select_6;
-    @BindView(R.id.person_toolbar)
-    Toolbar person_toolbar;
 
     private List<Boolean> list=Arrays.asList(false,false,false);
     private int hard=0;
@@ -84,12 +80,11 @@ public class PersonCreateActivity extends BaseActivity implements View.OnClickLi
      */
     @Override
     public void initView() {
-        ButterKnife.bind(this);
+         ButterKnife.bind(this);
          createPerson();
          selectview();
          person_touxiang.setOnClickListener(this);
          person_button.setOnClickListener(this);
-         person_back.setOnClickListener(this);
          person_sex.setOnClickListener(this);
          select_1.setOnClickListener(this);
          select_2.setOnClickListener(this);
@@ -107,7 +102,7 @@ public class PersonCreateActivity extends BaseActivity implements View.OnClickLi
         if (mDButils.queryPersonById(1L)==null){
             TimeGet timeGet=new TimeGet();
             person=new Person(1L,"",R.drawable.touxiang1,timeGet.getToDay(),timeGet.getBigID(),"学",1,1,"",R.drawable.personshow1,R.drawable.congwu2,1L);
-            person_toolbar.setVisibility(View.GONE);
+
             Record record=new Record(2L,person.getBig_ID(),timeGet.getToDay()-1,0,0,0,0,0,0,0,0);
             PersonValue personValue=new PersonValue(1L,0,0,0,0,0,0,0,0,0,1,0,0,"无");
             mDButils.insertMultChengjiu(createChengjiu(record.getR_id()));
@@ -219,9 +214,7 @@ public class PersonCreateActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.personcreate_back:
-                GoMain();
-            case R.id.personcreate_button:                          //确认按钮
+            case R.id.personcreate_button:                          //确认按钮,信息上传
                 if (person_name.getText().toString().equals("")){
                     toast("请输入名字");
                     return;

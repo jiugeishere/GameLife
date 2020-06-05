@@ -8,35 +8,6 @@
     android:background="@color/nowhite"
     tools:context=".activity.PersonCreateActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/person_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorToolbar"
-        android:clipToPadding="true"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <ImageView
-                android:id="@+id/personcreate_back"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/back_white" />
-
-            <TextView
-                style="@style/font_white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="资料修改" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

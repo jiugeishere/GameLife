@@ -1,6 +1,7 @@
 package ftd.txf.com.gamelife.activity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -93,11 +94,47 @@ public class MainActivity extends FragmentActivity implements WorkContract.View 
         int fragment_id=intent.getIntExtra("Fragment",-1);
         if (fragment_id==4){
             rgMain.check(R.id.mine_tab);
+            this.finish();
         }else if (fragment_id==2){
             rgMain.check(R.id.record_tab);
+            this.finish();
         }
     }
+    //返回键监听
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();//注释掉这行,back键不退出activity
+       showpauseDialog();
 
+    }
+    //暂停返回选项
+    private void showpauseDialog(){
+        /* @setIcon 设置对话框图标
+         * @setTitle 设置对话框标题
+         * @setMessage 设置对话框消息提示
+         * setXXX方法返回Dialog对象，因此可以链式设置属性
+         */
+        final AlertDialog.Builder normalDialog = new AlertDialog.Builder(MainActivity.this);
+        normalDialog.setCancelable(false);
+        normalDialog.setTitle("恳请：");
+        normalDialog.setMessage("确定离开吗？");
+        normalDialog.setPositiveButton("嗯",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.this.finish();
+                    }
+                });
+        normalDialog.setNegativeButton("怎么可能",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        // 显示
+        normalDialog.show();
+    }
     @Override
     public void saveWork(Work work){
         presenter.sendWorkdata(this);

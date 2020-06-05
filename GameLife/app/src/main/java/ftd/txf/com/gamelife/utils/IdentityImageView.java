@@ -92,7 +92,7 @@ public class IdentityImageView extends ViewGroup {
         TypedArray tta = mContext.obtainStyledAttributes(attrs,R.styleable.IdentityImageView);
         bigImage = tta.getDrawable(R.styleable.IdentityImageView_iciv_bigimage);
         smallimage = tta.getDrawable(R.styleable.IdentityImageView_iciv_smallimage);
-        angle = tta.getFloat(R.styleable.IdentityImageView_iciv_angle, 240);//小图以及进度条起始角度
+        angle = tta.getFloat(R.styleable.IdentityImageView_iciv_angle, 0);//小图以及进度条起始角度
         radiusScale = tta.getFloat(R.styleable.IdentityImageView_iciv_radiusscale, 0);//大图和小图的比例
 
         //是否要进度条，不为true的话，设置进度条颜色和宽度也没用
@@ -111,7 +111,6 @@ public class IdentityImageView extends ViewGroup {
         if (smallimage != null) {
             smallImageView.setImageDrawable(smallimage);
         }
-        smallImageView.setRotation((float) angle-180);
     }
 
 
@@ -228,7 +227,7 @@ public class IdentityImageView extends ViewGroup {
             rectf = new RectF(borderWidth / 2, borderWidth / 2,
                     getWidth() - borderWidth / 2, getHeight() - borderWidth / 2);
         }
-        canvas.drawArc(rectf, (float) 240, progresss, false, mProgressPaint);
+        canvas.drawArc(rectf, (float) 0, progresss, false, mProgressPaint);
     }
 
     @Override
@@ -323,7 +322,6 @@ public class IdentityImageView extends ViewGroup {
             return;
         }
         angle = angles;
-        smallImageView.setRotation(angles-180);
         requestLayout();
         invalidate();
     }

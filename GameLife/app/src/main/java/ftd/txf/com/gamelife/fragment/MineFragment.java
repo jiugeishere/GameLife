@@ -157,7 +157,9 @@ public class MineFragment extends BaseFragment implements RecordContract.View{
         PersonGif.setImageResource(mperson.getPersongif());
         CongWu.setImageResource(mperson.getCongwugif());
         GifDrawable persondrawable=(GifDrawable) PersonGif.getDrawable();
+
         final GifDrawable congwudrawable=(GifDrawable) CongWu.getDrawable();
+
         persondrawable.start();
         congwudrawable.setLoopCount(1);
         CongWu.setOnClickListener(new View.OnClickListener() {

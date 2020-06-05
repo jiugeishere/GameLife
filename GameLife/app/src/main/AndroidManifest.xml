@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/gamelife_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TiaozhangActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.TiaozhangActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.TimerActivity" />
         <activity android:name=".activity.PersonCreateActivity" />

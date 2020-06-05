@@ -15,7 +15,6 @@
         android:layout_marginBottom="7dp"
         android:background="@drawable/shape_radius_diaglog_top"
         app:cardElevation="3dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

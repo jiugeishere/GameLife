@@ -34,6 +34,7 @@ import ftd.txf.com.gamelife.base.BaseActivity;
 import ftd.txf.com.gamelife.entity.TimeGet;
 import ftd.txf.com.gamelife.limitutils.MobileInfoUtils;
 import ftd.txf.com.gamelife.services.RemindActionService;
+import ftd.txf.com.gamelife.utils.IdentityImageView;
 
 public class SettingActivity extends BaseActivity {
 
@@ -73,6 +74,11 @@ public class SettingActivity extends BaseActivity {
     ImageView MusicShow3;
     @BindView(R.id.workmore_back)
     ImageView Back;
+    @BindView(R.id.workmore_img)
+    IdentityImageView Cloudimg;
+    @BindView(R.id.workmore_means)
+    LinearLayout Means;
+
     //内容和时间
     private String content="";
     private int hour=0;
@@ -80,14 +86,14 @@ public class SettingActivity extends BaseActivity {
     private boolean naocheck;
     //音乐选择
     private  Animation rotateAnimation;
-    private int showmusic=1;
+    private int showmusic=0;
     private int music=0;
     //设置存储
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     @Override
     public int intiLayout() {
-        return R.layout.activity_work_more;
+        return R.layout.activity_seting;
     }
 
     @Override
@@ -121,6 +127,13 @@ public class SettingActivity extends BaseActivity {
         editor.apply();
         naozhong();
         moshi();
+        cloud();
+    }
+    //云端处理
+    private void cloud(){
+        Cloudimg.getBigCircleImageView().setImageResource(R.drawable.touxiang1);
+        Cloudimg.setBorderWidth(5);
+        Cloudimg.setRadiusScale(1.2f);
     }
     //挑战和隐藏模式设置
     private void moshi(){
@@ -162,7 +175,15 @@ public class SettingActivity extends BaseActivity {
         setMusic();
         setQuanxian();
     }
-
+    private void Setmeans(){
+        Means.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,PersonCreateActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
     /**
      * 音乐设置
      */
@@ -170,6 +191,9 @@ public class SettingActivity extends BaseActivity {
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
         LinearInterpolator lin = new LinearInterpolator();
         rotateAnimation.setInterpolator(lin);
+        MusicUp.setImageResource(R.drawable.up);
+        MusicShow.setVisibility(View.GONE);
+
         MusicUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -275,7 +299,7 @@ public class SettingActivity extends BaseActivity {
         int time=timeGet.TimetoNextDay(hour,minte);
         long start = System.currentTimeMillis()+time*1000;
         Intent intent = new Intent(SettingActivity.this, RemindActionService.class);
-        intent.putExtra("channel", R.layout.activity_work_more);
+        intent.putExtra("channel", R.layout.activity_seting);
         intent.putExtra("title", "游戏人生");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getService(SettingActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

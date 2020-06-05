@@ -56,7 +56,6 @@ public class TiaozhangActivity extends BaseActivity implements RecordContract.Vi
     private Work work;
 
     private int i = 0;
-    private int angle = 240;
 
     @Override
     public int intiLayout() {
