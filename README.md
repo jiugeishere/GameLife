@@ -1,5 +1,5 @@
 # GameLife
-该为个人参赛项目，现在比赛已经结束，这边主要将设计ui和目前完成结果图实例放上，并打算借此demo和自己设计的一些Ui继续进行设计开发。
+出于对自己想法的热爱，和对Android应用开发兴趣，在此记录对自己设计的应用开发过程。本内容为个人参赛项目，现在比赛已经结束，这边主要将设计ui和目前完成结果图实例放上，并打算借此demo和自己设计的一些Ui继续进行设计开发。
 ## 一、项目来源
 疫情期间，最让我苦恼的事情就是每天要早起打卡，而最让我放松的事情就是每天偶尔打打游戏。可细看，游戏虽然魅力十足，但过于沉迷却会浪费时间；生活虽然意义非凡，但缺乏乐趣让人难以坚持。
 当然并不是每个人都缺少对生活的乐趣，而是很多人在人生的规划上没有好好的走每一步。我相信人生肯定是多姿多彩的，至少在你付出后，所获得的一切都是值得的。<br>
@@ -46,4 +46,15 @@
 <img width="500" height="800" src="http://kan.027cgb.com/630788/%E9%97%B9%E9%92%9F.gif"/>
 <img src="http://kan.027cgb.com/630788/%E7%A4%BE%E4%BA%A4_%E8%8F%9C%E5%8D%95%E6%A0%8F.jpg"/>
 ## 三、目前制作截图
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00621-174137.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00621-174116.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00621-174108.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00621-174151.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00621-174158.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00425-195203.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00425-195214.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/S00425-195240.jpg"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/%E6%89%93%E5%8D%A1.gif"/>
+<img width="500" height="800" src="http://kan.027cgb.com/630788/%E9%94%BB%E7%82%BC.gif"/>
+
 
